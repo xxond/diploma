@@ -1,11 +1,13 @@
+2021-11-21 16:21:03,145 - text-clf-train - INFO - Config:
+
 seed: 42
 path_to_save_folder: models
 experiment_name: model
 
 # data
 data:
-  train_data_path: dataset/train.csv
-  test_data_path: dataset/test.csv
+  train_data_path: dataset/baseline/train.csv
+  test_data_path: dataset/baseline/test.csv
   sep: ','
   text_column: text
   target_column: target
@@ -32,5 +34,6 @@ logreg:
 
 # grid-search
 grid-search:
-  do_grid_search: false
+  do_grid_search: true
   grid_search_params_path: hyperparams.py
+2021-11-21 16:21:03,146 - text-clf-train - INFO - Loading data...

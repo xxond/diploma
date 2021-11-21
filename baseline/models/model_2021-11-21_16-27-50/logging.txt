@@ -1,3 +1,5 @@
+2021-11-21 16:27:50,028 - text-clf-train - INFO - Config:
+
 seed: 42
 path_to_save_folder: models
 experiment_name: model
@@ -32,5 +34,9 @@ logreg:
 
 # grid-search
 grid-search:
-  do_grid_search: false
+  do_grid_search: true
   grid_search_params_path: hyperparams.py
+2021-11-21 16:27:50,030 - text-clf-train - INFO - Loading data...
+2021-11-21 16:28:18,505 - text-clf-train - INFO - Train dataset size: 14126304
+2021-11-21 16:28:18,506 - text-clf-train - INFO - Test dataset size: 3531577
+2021-11-21 16:28:19,512 - text-clf-train - INFO - Finding best hyper-parameters...
