@@ -19,7 +19,7 @@ preprocessing:
 tf-idf:
   lowercase: true
   ngram_range: (1, 1)
-  max_df: 1.0
+  max_df: 0.5
   min_df: 1
 
 # logreg
