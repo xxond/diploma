@@ -1,0 +1,81 @@
+2021-12-13 10:43:32,751 - text-clf-train - INFO - Config:
+
+seed: 42
+path_to_save_folder: models
+experiment_name: model
+
+# data
+data:
+  train_data_path: dataset/IMDB_train.csv
+  test_data_path: dataset/IMDB_test.csv
+  sep: ','
+  text_column: text
+  target_column: target
+
+# preprocessing
+# (included in resulting model pipeline, so preserved for inference)
+preprocessing:
+  lemmatization: null  # pymorphy2
+
+# tf-idf
+tf-idf:
+  lowercase: true
+  ngram_range: (1, 1)
+  max_df: 0.5
+  min_df: 1
+
+# logreg
+logreg:
+  penalty: l2
+  C: 1.0
+  class_weight: balanced
+  solver: saga
+  n_jobs: -1
+
+# grid-search
+grid-search:
+  do_grid_search: false
+  grid_search_params_path: hyperparams.py
+2021-12-13 10:43:32,752 - text-clf-train - INFO - Loading data...
+2021-12-13 10:43:39,989 - text-clf-train - INFO - Train dataset size: 459130
+2021-12-13 10:43:39,989 - text-clf-train - INFO - Test dataset size: 114783
+2021-12-13 10:43:40,011 - text-clf-train - INFO - Fitting TF-IDF + LogReg model...
+2021-12-13 10:45:26,040 - text-clf-train - INFO - Done!
+2021-12-13 10:45:26,041 - text-clf-train - INFO - TF-IDF number of features: 254005
+2021-12-13 10:45:26,041 - text-clf-train - INFO - Calculating metrics...
+2021-12-13 10:46:47,281 - text-clf-train - INFO - Train classification report:
+
+              precision    recall  f1-score   support
+
+       False       0.89      0.77      0.82    338526
+        True       0.53      0.73      0.61    120604
+
+    accuracy                           0.76    459130
+   macro avg       0.71      0.75      0.72    459130
+weighted avg       0.79      0.76      0.77    459130
+
+2021-12-13 10:46:47,283 - text-clf-train - INFO - Train confusion matrix:
+
+        False   True
+False  260135  78391
+True    32492  88112
+
+2021-12-13 10:47:08,296 - text-clf-train - INFO - Test classification report:
+
+              precision    recall  f1-score   support
+
+       False       0.86      0.75      0.80     84463
+        True       0.48      0.67      0.56     30320
+
+    accuracy                           0.72    114783
+   macro avg       0.67      0.71      0.68    114783
+weighted avg       0.76      0.72      0.74    114783
+
+2021-12-13 10:47:08,298 - text-clf-train - INFO - Test confusion matrix:
+
+       False   True
+False  62925  21538
+True   10065  20255
+
+2021-12-13 10:47:08,298 - text-clf-train - INFO - Saving the model...
+2021-12-13 10:47:09,940 - text-clf-train - INFO - Done!
